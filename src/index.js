@@ -18,6 +18,7 @@ function loadAnimals() {
 }
 
 function updateAnimals(animals) {
+  console.log(animals)
   document.getElementById("submit").onclick = function getSelectValue() {
     let speciesOption = document.getElementById("species-dropdown").value;
     let ageOption = document.getElementById("age-dropdown").value;
@@ -69,10 +70,9 @@ function addAnimals(animal) {
     animalPhoto.src = "./assets/placeholder.gif";
     animalPhoto.alt = animal.name;
   }
-  animalPhoto.onclick = function() {
+  animalPhoto.onclick = function () {
     window.location.href = animal.url;
-};
- 
+  };
 
   let animalName = document.createElement("h2");
   animalName.textContent = animal.name;
