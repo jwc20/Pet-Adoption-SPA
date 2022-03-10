@@ -17,7 +17,7 @@
 - [x] Add Event listener to Reset (I think it is working)
 - [x] Make the Results filter/update work
 - [x] Add placeholder image for animals with no photos
-- [ ] Add styles with index.css
+- [x] Add styles with index.css
 - [ ] Create no result prompt when there is no result from the search
 - [x] Delete duplicates from db.json
 
