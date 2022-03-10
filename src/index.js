@@ -13,12 +13,17 @@ function loadAnimals() {
     .then((res) => res.json())
     .then((json) => {
       updateAnimals(json);
+
+      // // Limiting number of cards on grid
+      // let i = 0;
+      // let animalSet = json.slice(i, i + 21);
+      // updateAnimals(animalSet);
     })
     .catch(console.err);
 }
 
 function updateAnimals(animals) {
-  console.log(animals)
+  // console.log(animals)
   document.getElementById("submit").onclick = function getSelectValue() {
     let speciesOption = document.getElementById("species-dropdown").value;
     let ageOption = document.getElementById("age-dropdown").value;
@@ -51,10 +56,6 @@ function updateAnimals(animals) {
 }
 
 function addAnimals(animal) {
-  // TODO:
-  // Add button to redirect to animal petfinder page
-
-  // let animalGrid = document.getElementById("animals-results");
   let animalCard = document.createElement("div");
   animalCard.className = "animal-card";
 
@@ -93,7 +94,15 @@ function addAnimals(animal) {
   let animalSize = document.createElement("p");
   animalSize.textContent = `Size: ${animal.size}`;
 
-  // let animalCoat = document.createElement('p');
+  let animalCoat = document.createElement('p');
+  if (animal.coat === undefined || animal.coat === null) {
+    animalCoat.textContent = "";
+  } else {
+    animalCoat.textContent = `Coat: ${animal.coat}`;
+  }
+
+
+
   // let animalAttribute = document.createElement('p'); // might have to be a list
   // let animalPrimaryBreed = document.createElement('p'); // animal.breeds.primary
   // let animalOrganization = document.createElement("p"); // organization_animal_id
@@ -104,8 +113,12 @@ function addAnimals(animal) {
     animalAge,
     animalGender,
     animalSize,
-    animalPrimaryColor
+    animalPrimaryColor,
+    animalCoat,
   );
+
+  // console.log(animalGrid)
+
   animalCard.append(animalPhoto, animalCardContent);
   animalGrid.append(animalCard);
 }
