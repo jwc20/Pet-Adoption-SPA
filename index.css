@@ -65,6 +65,10 @@ body {
   width: 50%;
 }
 
-.animal-card-content {
+/* .animal-card-content {
   padding: 3rem 3rem;
+} */
+
+p {
+  margin: 0px 0px;
 }
