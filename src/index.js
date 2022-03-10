@@ -69,6 +69,10 @@ function addAnimals(animal) {
     animalPhoto.src = "./assets/placeholder.gif";
     animalPhoto.alt = animal.name;
   }
+  animalPhoto.onclick = function() {
+    window.location.href = animal.url;
+};
+ 
 
   let animalName = document.createElement("h2");
   animalName.textContent = animal.name;
