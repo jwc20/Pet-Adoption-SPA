@@ -94,19 +94,40 @@ function addAnimals(animal) {
   let animalSize = document.createElement("p");
   animalSize.textContent = `Size: ${animal.size}`;
 
-  let animalCoat = document.createElement('p');
+  let animalCoat = document.createElement("p");
   if (animal.coat === undefined || animal.coat === null) {
     animalCoat.textContent = "";
   } else {
     animalCoat.textContent = `Coat: ${animal.coat}`;
   }
 
+  let animalPrimaryBreed = document.createElement("p"); // animal.breeds.primary
+  animalPrimaryBreed.textContent = `Breed: ${animal.breeds.primary}`;
 
+  let animalAttribute = document.createElement("p");
+  animalAttribute.textContent = `${animal.name} is 
+  ${animal.attributes.declawed !== false ? "declawed," : "not declawed,"} 
+  ${
+    animal.attributes.house_trained !== false
+      ? "house trained,"
+      : "not house trained,"
+  } and
+  ${
+    animal.attributes.spayed_neutered !== false
+      ? "spayed or neutered"
+      : "not spayed or neutered"
+  }.`;
 
-  // let animalAttribute = document.createElement('p'); // might have to be a list
-  // let animalPrimaryBreed = document.createElement('p'); // animal.breeds.primary
-  // let animalOrganization = document.createElement("p"); // organization_animal_id
   // let animalContact = document.createElement("p"); // list
+  // address
+  // city
+  // state
+  // postcode
+  // => city, state postcode
+  // email
+  // phone
+
+  //console.log(animal.contact)
 
   animalCardContent.append(
     animalName,
@@ -115,6 +136,8 @@ function addAnimals(animal) {
     animalSize,
     animalPrimaryColor,
     animalCoat,
+    animalPrimaryBreed,
+    animalAttribute
   );
 
   // console.log(animalGrid)
