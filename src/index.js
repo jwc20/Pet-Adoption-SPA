@@ -118,16 +118,14 @@ function addAnimals(animal) {
       : "not spayed or neutered"
   }.`;
 
-  // let animalContact = document.createElement("p"); // list
-  // address
-  // city
-  // state
-  // postcode
-  // => city, state postcode
-  // email
-  // phone
+  let animalAddress = document.createElement("p");
+  animalAddress.textContent = `${animal.contact.address.city}, ${animal.contact.address.state} ${animal.contact.address.postcode}`;
 
-  //console.log(animal.contact)
+  let animalEmail = document.createElement("p");
+  animalEmail.textContent = `Email: ${animal.contact.email}`;
+
+  let animalPhone = document.createElement("p");
+  animalPhone.textContent = `Phone: ${animal.contact.phone}`;
 
   animalCardContent.append(
     animalName,
@@ -137,7 +135,10 @@ function addAnimals(animal) {
     animalPrimaryColor,
     animalCoat,
     animalPrimaryBreed,
-    animalAttribute
+    animalAttribute,
+    animalAddress,
+    animalEmail,
+    animalPhone
   );
 
   // console.log(animalGrid)
