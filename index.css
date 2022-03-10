@@ -6,9 +6,6 @@
   text-align: center;
 }
 
-
-
-
 body {
   justify-content: center;
   align-content: center;
@@ -16,14 +13,13 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-
+/* Results grid */
 #animals-results {
   /* border: 1px solid #333; */
   display: grid;
   margin: auto;
   width: 50%;
   align-items: start;
-
 }
 
 .animal-card {
@@ -42,10 +38,3 @@ body {
 .animal-card-content {
   padding: 3rem 3rem;
 }
-
-/* p.description {
-  float: right;
-  border: 1px solid #333;
-}
-*/
-
