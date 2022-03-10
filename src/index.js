@@ -125,15 +125,11 @@ function addAnimals(animal) {
   animalEmail.textContent = `Email: ${animal.contact.email}`;
 
   let animalPhone = document.createElement("p");
-  // animalPhone.textContent = `Phone: ${animal.contact.phone}`;
-
   if (animal.contact.phone === null) {
     animalPhone.textContent = "";
   } else {
     animalPhone.textContent = `Phone: ${animal.contact.phone}`;
   }
-
-
 
   animalCardContent.append(
     animalName,
@@ -143,13 +139,11 @@ function addAnimals(animal) {
     animalPrimaryColor,
     animalCoat,
     animalPrimaryBreed,
-    animalAddress,
     animalEmail,
     animalPhone,
     animalAttribute,
+    animalAddress
   );
-
-  // console.log(animalGrid)
 
   animalCard.append(animalPhoto, animalCardContent);
   animalGrid.append(animalCard);
