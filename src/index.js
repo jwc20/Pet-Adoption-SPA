@@ -24,7 +24,38 @@ function loadAnimals() {
 
 function updateAnimals(animals) {
   // console.log(animals)
-  document.getElementById("submit").onclick = function getSelectValue() {
+  // document.getElementById("submit").onclick = function getSelectValue() {
+  //   let speciesOption = document.getElementById("species-dropdown").value;
+  //   let ageOption = document.getElementById("age-dropdown").value;
+  //   let genderOption = document.getElementById("gender-dropdown").value;
+  //   let sizeOption = document.getElementById("size-dropdown").value;
+
+  //   while (animalGrid.firstChild) {
+  //     animalGrid.removeChild(animalGrid.firstChild);
+  //   }
+
+  //   searchedProperties = animals.filter((e) => {
+  //     if (speciesOption !== "" && e.species !== speciesOption) {
+  //       return false;
+  //     }
+  //     if (ageOption !== "" && e.age !== ageOption) {
+  //       return false;
+  //     }
+  //     if (genderOption !== "" && e.gender !== genderOption) {
+  //       return false;
+  //     }
+  //     if (sizeOption !== "" && e.size !== sizeOption) {
+  //       return false;
+  //     }
+  //     return true;
+  //   });
+
+  //   searchedProperties.forEach(addAnimals);
+  //   return false;
+  // };
+  
+  document.getElementById("submit").addEventListener("click", (e) => {
+    e.preventDefault();
     let speciesOption = document.getElementById("species-dropdown").value;
     let ageOption = document.getElementById("age-dropdown").value;
     let genderOption = document.getElementById("gender-dropdown").value;
@@ -52,7 +83,8 @@ function updateAnimals(animals) {
 
     searchedProperties.forEach(addAnimals);
     return false;
-  };
+  });
+
 }
 
 function addAnimals(animal) {
@@ -72,13 +104,13 @@ function addAnimals(animal) {
     animalPhoto.alt = animal.name;
   }
   
-  animalPhoto.onclick = function () {
-    window.location.href = animal.url;
-  };
-  // same as above:
-  // animalPhoto.addEventListener("click", () => {
+  // animalPhoto.onclick = function () {
   //   window.location.href = animal.url;
-  // })
+  // };
+  // same as above:
+  animalPhoto.addEventListener("click", () => {
+    window.location.href = animal.url;
+  })
 
   let animalName = document.createElement("h2");
   animalName.textContent = animal.name;
