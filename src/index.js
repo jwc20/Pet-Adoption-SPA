@@ -4,56 +4,17 @@ let animalGrid = document.getElementById("animals-results");
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  // Functions here
   loadAnimals();
 }
 
 function loadAnimals() {
   fetch(petFinderAPI)
     .then((res) => res.json())
-    .then((json) => {
-      updateAnimals(json);
-
-      // // Limiting number of cards on grid
-      // let i = 0;
-      // let animalSet = json.slice(i, i + 21);
-      // updateAnimals(animalSet);
-    })
+    .then(updateAnimals)
     .catch(console.err);
 }
 
 function updateAnimals(animals) {
-  // console.log(animals)
-  // document.getElementById("submit").onclick = function getSelectValue() {
-  //   let speciesOption = document.getElementById("species-dropdown").value;
-  //   let ageOption = document.getElementById("age-dropdown").value;
-  //   let genderOption = document.getElementById("gender-dropdown").value;
-  //   let sizeOption = document.getElementById("size-dropdown").value;
-
-  //   while (animalGrid.firstChild) {
-  //     animalGrid.removeChild(animalGrid.firstChild);
-  //   }
-
-  //   searchedProperties = animals.filter((e) => {
-  //     if (speciesOption !== "" && e.species !== speciesOption) {
-  //       return false;
-  //     }
-  //     if (ageOption !== "" && e.age !== ageOption) {
-  //       return false;
-  //     }
-  //     if (genderOption !== "" && e.gender !== genderOption) {
-  //       return false;
-  //     }
-  //     if (sizeOption !== "" && e.size !== sizeOption) {
-  //       return false;
-  //     }
-  //     return true;
-  //   });
-
-  //   searchedProperties.forEach(addAnimals);
-  //   return false;
-  // };
-  
   document.getElementById("submit").addEventListener("click", (e) => {
     e.preventDefault();
     let speciesOption = document.getElementById("species-dropdown").value;
@@ -84,7 +45,6 @@ function updateAnimals(animals) {
     searchedProperties.forEach(addAnimals);
     return false;
   });
-
 }
 
 function addAnimals(animal) {
@@ -103,14 +63,10 @@ function addAnimals(animal) {
     animalPhoto.src = "./assets/placeholder.gif";
     animalPhoto.alt = animal.name;
   }
-  
-  // animalPhoto.onclick = function () {
-  //   window.location.href = animal.url;
-  // };
-  // same as above:
+
   animalPhoto.addEventListener("click", () => {
     window.location.href = animal.url;
-  })
+  });
 
   let animalName = document.createElement("h2");
   animalName.textContent = animal.name;
